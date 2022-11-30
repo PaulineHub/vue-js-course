@@ -1,29 +1,35 @@
-import AssignmentList from './AssignmentList.js';
-import AssignmentCreate from './AssignmentCreate.js';
+import AssignmentList from './AssignmentList.js'
+import AssignmentCreate from './AssignmentCreate.js'
 
 export default {
   components: { AssignmentList, AssignmentCreate },
 
   template: `
-        <section class="space-y-6">
-            <assignment-list :assignments="filters.inProgress" title="In Progress"></assignment-list>
-            <assignment-list :assignments="filters.completed" title="Completed"></assignment-list>
-
-            <assignment-create @addAssignment="add"></assignment-create> 
+        <section class="flex gap-8">
+            <assignment-list :assignments="filters.inProgress" title="In Progress">
+                <assignment-create @add="add"></assignment-create> 
+            </assignment-list>
+            
+            <div v-show="showCompleted">
+                <assignment-list 
+                    :assignments="filters.completed" 
+                    title="Completed" 
+                    can-toggle
+                    @toggle="showCompleted = !showCompleted"
+                ></assignment-list>
+            </div> 
         </section>
     `,
   // :assignments car on passe la valeur de 'filters.inProgress'
   // title (sans :) car on passe la string
   // @addAssignment="add" : au lieu de v-on:click, on a un customed event named 'addAssignment' donc on ecrit @addAssignment
   //j'ecoute le 'addAssignment' @emit from assignment-create qui remonte en parametre la valeur de l'input du form
+  // can-toggle est un flag qu'on passe comme prop a l'elt enfant (valeur true comme on le declare)
 
   data() {
     return {
-      assignments: [
-        { name: 'Finish project', complete: false, id: 1, tag: 'math' },
-        { name: 'Read Chapter 4', complete: false, id: 2, tag: 'science' },
-        { name: 'Turn in Homework', complete: false, id: 3, tag: 'math' },
-      ],
+      assignments: [],
+      showCompleted: true,
     }
   },
 
@@ -36,6 +42,18 @@ export default {
         completed: this.assignments.filter((assignment) => assignment.complete),
       }
     },
+  },
+
+  // Lifecycle options
+  // https://vuejs.org/api/options-lifecycle.html#created
+  // created() : Called after the instance has finished processing all state-related options.
+  // mounted() : Called after the component has been mounted.
+  created() {
+    fetch('http://localhost:3001/assignments')
+      .then((response) => response.json())
+      .then((assignments) => {
+        this.assignments = assignments
+      })
   },
 
   methods: {
