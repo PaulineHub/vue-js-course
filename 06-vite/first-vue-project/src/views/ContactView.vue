@@ -1,15 +1,25 @@
+<script setup>
+import { useStorage } from '@/composables/useStorage';
+
+let name = useStorage('name', 'pauline');
+let message = useStorage('message', 'hello');
+
+let obj = useStorage('obj', {one: 'one'});
+
+setTimeout(() => {
+  obj.value = {'changed' : 'entirely'};
+}, 3000);
+</script>
+
 <template>
-  <div class="contact">
-    <h1>This is a contact page</h1>
+  <div>
+    <p>
+      What is your name ? <input type="text" v-model="name">
+    </p>
+    <p>
+      What is your message ? <input type="text" v-model="message">
+    </p>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+
