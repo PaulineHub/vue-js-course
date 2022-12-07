@@ -2,12 +2,16 @@
 import TabbableTextarea from "@/components/TabbableTextarea.vue";
 import { ref } from "vue";
 
+// ref()
+// Takes an inner value and returns a reactive and mutable ref object, which has a single property.value that points to the inner value.
 let comment = ref('initial textarea value');
 
 </script>
 
 <template>
   <main>
+    <!-- v-model
+    Create a two-way binding on a form input element or a component. -->
     <form>
       <TabbableTextarea v-model="comment" style="width: 100%; height: 300px;" />
     </form>

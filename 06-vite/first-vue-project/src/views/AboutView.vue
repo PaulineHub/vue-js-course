@@ -4,6 +4,7 @@
   //   mixins: [flash]
   // }
 
+import { counter } from "@/stores/counterStore";
 import { useFlash } from '@/composables/useFlash';
 let {flash} = useFlash();
 
@@ -14,6 +15,7 @@ let {flash} = useFlash();
     <p>
       <button @click="flash('about page', 'It works!', 'info')">Click me</button>
     </p>
+    <p>The current count is {{ counter.count}}</p>
   </div>
 </template>
 

@@ -1,12 +1,20 @@
 <script setup>
-// Besoin de definir le type de props passe par l'exterieur au composant
+// utilisation du v-model avec un composant
+// https://vuejs.org/guide/components/events.html#usage-with-v-model
+
+// Besoin de definir les props passées par l'exterieur au composant (pas obligatoire de definir le type)
 // https://vuejs.org/guide/components/props.html#props-declaration
+
+// defineProps(['modelValue'])
+
 defineProps({
     modelValue: String
 });
 
+
 // emits : Declare the custom events emitted by the component.
 // besoin de les definir avec defineEmits dans le cadre de <script setup>
+// update:modelValue vient de v-model, convention pour nommer l'evt qui update le modelValue qui correspont a v-model du parent
 // https://vuejs.org/guide/components/events.html
 let emit = defineEmits(['update:modelValue']);
 
