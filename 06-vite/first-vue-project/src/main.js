@@ -5,6 +5,10 @@ import router from "./router";
 
 import "./assets/main.css";
 
+// fichier avec tailwind, a installer
+//https://tailwindcss.com/docs/guides/vite
+import "./assets/index.css"; 
+
 const app = createApp(App);
 
 app.use(router);

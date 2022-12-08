@@ -4,6 +4,7 @@ import ContactView from "../views/ContactView.vue";
 import QuizView from "../views/QuizView.vue";
 import CounterView from "../views/CounterView.vue";
 import PiniaCounterView from "../views/PiniaCounterView.vue";
+import TeamView from "../views/TeamView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       path: "/pinia-counter",
       name: "pinia-counter",
       component: PiniaCounterView,
+    },
+    {
+      path: "/team",
+      name: "team",
+      component: TeamView,
     },
   ],
 });

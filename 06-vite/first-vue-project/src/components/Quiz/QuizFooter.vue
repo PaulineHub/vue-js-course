@@ -11,7 +11,7 @@
 
 <script setup>
 import { inject } from "vue";
-import {quiz2} from "@/stores/quizStore";
+import {quiz2} from "@/stores/QuizStore";
 
 defineProps({ quiz1: Object });
 

@@ -4,7 +4,7 @@
   //   mixins: [flash]
   // }
 
-import { counter } from "@/stores/counterStore";
+import { counter } from "@/stores/CounterStore";
 import { useFlash } from '@/composables/useFlash';
 let {flash} = useFlash();
 

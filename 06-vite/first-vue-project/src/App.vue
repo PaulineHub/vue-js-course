@@ -18,6 +18,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
         <RouterLink to="/quiz">Quiz</RouterLink>
         <RouterLink to="/counter">Counter</RouterLink>
         <RouterLink to="/pinia-counter">PiniaCounter</RouterLink>
+        <RouterLink to="/team">Team</RouterLink>
       </nav>
     </div>
   </header>
