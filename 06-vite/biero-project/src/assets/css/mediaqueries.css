@@ -1,0 +1,157 @@
+@media only screen and (min-width: 480px) {
+
+    /* NAV */
+
+    .logo-ctn {
+        width: 140px !important;
+    }
+
+    nav {
+        font-size: 1.4em;
+    }
+
+    /* ACCUEIL */
+
+    .hero-wrapper {
+        top: 180px !important;
+    }
+
+    /* BIERE */
+
+    .biere {
+        flex-direction: row;
+        gap: 30px;
+        position: relative;
+        top: 0px;
+    }
+
+    .biere__image,
+    .biere__infos {
+        width: 50%;
+    }
+
+    .biere__image {
+        height: 100%;
+        position: sticky;
+    }
+
+}
+
+@media only screen and (min-width: 600px) {
+
+    /* ACCUEIL */
+
+    .hero-img-ctn {
+        height: fit-content !important;
+        /* width: 80% !important; */
+        /* margin-left: 10px;
+        margin-right: 10px; */
+    }
+
+    .hero-img-ctn img {
+        height: fit-content !important;
+        width: 100% !important;
+        transform: translate(0%, 0%) !important;
+    }
+
+    /* ENTETE */
+
+    .nav-side-wrapper {
+        flex-direction: row !important;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    /* RESET */
+
+    h1 {
+        font-size: 3em;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+
+    button {
+        padding: 5px 20px;
+        font-size: 1.8em;
+    }
+
+    main {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* NAV */
+
+    header {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
+
+    nav {
+        font-size: 1.6em;
+    }
+
+    .logo-ctn {
+        width: 160px !important;
+    }
+
+    /* ACCUEIL */
+
+    .hero-wrapper {
+        top: 200px !important;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .hero-img-ctn {
+        margin:auto;
+        width: 80% !important;
+    }
+
+    /* GRID */
+
+    .grid {
+        grid-gap: 2.5vw;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* BIERE */
+
+    .biere {
+        margin: 0 auto 60px auto;
+        gap: 60px;
+        width: 80%;
+    }
+
+}
+
+@media only screen and (min-width:1024px) {
+
+    /* RESET */
+
+    h3 {
+        font-size: 1.6em;
+    }
+
+    h4 {
+        font-size: 1.3em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    /* GRID */
+    
+    .grid {
+        grid-gap: 2.25vw;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}

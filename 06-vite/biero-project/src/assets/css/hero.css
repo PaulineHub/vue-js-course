@@ -1,0 +1,25 @@
+
+
+.hero-wrapper {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+}
+
+.hero-img-ctn {
+    height: 60vh;
+    width: fit-content;
+    overflow: hidden;
+}
+
+.hero-img-ctn img {
+    height: 100%;
+    width: fit-content;
+    transform: translate(-30%, 0%);
+}
+
+.hero-title-ctn {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+}

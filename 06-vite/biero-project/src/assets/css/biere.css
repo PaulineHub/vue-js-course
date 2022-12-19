@@ -1,0 +1,51 @@
+/* Components : biere */
+
+
+.biere {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 10px 60px 10px;
+    gap: 20px;
+    position: absolute;
+    top: 140px;
+}
+
+.biere__image,
+.biere__infos {
+    width: 100%;
+}
+
+.biere__image {
+
+    position: relative;
+    top: 0;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.biere__commentaires {
+    counter-reset: comment-counter;
+    margin-top: var(--space-xsmall);
+}
+
+.biere__commentaires p {
+    padding-left: 26px;
+    position: relative;
+}
+
+.biere__commentaires p::before {
+    counter-increment: comment-counter;
+    content: counter(comment-counter) " - ";
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.biere__commentaires small {
+    display: block;
+    margin-top: var(--space-base);
+}
+
+.biere__commentaires p + p {
+    margin-top: var(--space-xsmall);
+}

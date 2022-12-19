@@ -1,0 +1,65 @@
+/* Components : tuile */
+
+.dark-background {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+}
+
+.tuile {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow .3s ease;
+    position: relative;
+}
+
+.tuile:hover {
+    /* https://getcssscan.com/css-box-shadow-examples */
+    box-shadow: rgb(0 0 0 / 15%) 0px 10px 10px;
+}
+
+.tuile__link {
+    display: flex;
+    flex-direction: column;
+}
+
+.tuile img {
+    transition: transform .3s ease;
+}
+
+.tuile:hover img {
+    transform: scale(1.05);
+}
+
+.tuile:hover .tuile__detail {
+    opacity: 1;
+}
+
+.tuile:hover .dark-background {
+    opacity: 0.5;
+}
+
+.tuile__detail {
+    align-items: flex-end;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: var(--space-xsmall);
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    color: white;
+    opacity: 0;
+}
+
+.grid--hero .tuile:first-child .title--tertiary {
+    font-size: max(26px, 3.5vw);
+}
+
+.grid--hero .tuile:first-child .title--quaternary {
+    font-size: max(22px, 2.5vw);
+}
