@@ -118,3 +118,11 @@ textarea~button {
     padding: 4px 10px;
     border-radius: 2px;
 }
+
+.mt-xsmall {
+    margin-top: 10px;
+}
+
+.mt-small {
+    margin-top: 20px;
+}

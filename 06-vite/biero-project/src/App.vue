@@ -1,5 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import {useUserStore} from "./stores/UserStore.js";
+
+let store = useUserStore();
+
 </script>
 
 <template>
@@ -10,10 +14,14 @@ import { RouterLink, RouterView } from "vue-router";
       </div>
       <div>
         <RouterLink to="/bieres">Bieres</RouterLink>
-        <!-- <RouterLink to="/biere/:id">Contact</RouterLink> -->
       </div>
+      <form>
+        <input type="text" placeholder='Usager' v-model="store.courriel" />
+        <button @click.prevent="store.login">Login</button>
+      </form>
     </nav>
   </header>
+  <!-- component matched by the route will render here -->
   <RouterView />
 </template>
 

@@ -25,7 +25,7 @@
 
 .biere__commentaires {
     counter-reset: comment-counter;
-    margin-top: var(--space-xsmall);
+    margin-top: 20px;
 }
 
 .biere__commentaires p {
@@ -47,5 +47,5 @@
 }
 
 .biere__commentaires p + p {
-    margin-top: var(--space-xsmall);
+    margin-top: 20px;
 }

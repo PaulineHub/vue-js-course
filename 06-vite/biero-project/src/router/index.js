@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import BieresView from '../views/BieresView.vue'
+import BieresView from '../views/BieresView.vue';
+import BiereView from '../views/BiereView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,7 +16,12 @@ const router = createRouter({
       name: 'bieres',
       component: BieresView,
     },
+    {
+      path: '/biere/:id',
+      name: 'biere',
+      component: BiereView,
+    },
   ],
-});
+})
 
 export default router;

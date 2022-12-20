@@ -1,0 +1,23 @@
+.starsWrapper {
+    font-size: 2.2em;
+    margin-top: 20px;
+}
+
+/* 
+Ref hover etoiles :
+https: //stackoverflow.com/questions/29530680/how-can-i-do-the-hover-effect-like-a-rating-star-in-this-code-css-html
+*/
+
+.starsWrapper>span:before {
+    content: '\2605';
+    color: black;
+    cursor: pointer;
+}
+
+.starsWrapper:hover>span:before {
+    color: rgb(255, 217, 0);
+}
+
+.starsWrapper>span:hover~span:before {
+    color: black;
+}
