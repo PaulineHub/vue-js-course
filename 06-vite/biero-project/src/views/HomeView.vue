@@ -1,6 +1,6 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-
+import { RouterLink } from "vue-router";
+import 'animate.css';
 
 
 </script>
@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
 
     <main class='hero-wrapper'>
-      <div class='hero-img-ctn'>
+      <div class='hero-img-ctn animate__animated animate__fadeIn'>
         <img src='../assets/img/hero-img.jpg' alt='' />
       </div>
       <div class='hero-title-ctn'>
