@@ -1,26 +1,39 @@
 <script setup>
 import { useBiereStore } from "../stores/BiereStore.js";
+import { useUserStore } from "../stores/UserStore.js";
 import { onMounted, computed } from "vue";
 import { useRoute } from 'vue-router'
 
-let store = useBiereStore();
+let biereStore = useBiereStore();
+let userStore = useUserStore();
 const route = useRoute();
 
 onMounted(() => {
-    store.fetchBiere(route.params.id);
-    store.fetchNote(route.params.id);
-    store.fetchCommentaires(route.params.id);
+    biereStore.id = route.params.id;
+    biereStore.fetchBiere();
+    biereStore.fetchNote();
+    biereStore.fetchCommentaires();
 });
 
 const getBiere = computed(() => {
-    return store.getBiere;
+    return biereStore.getBiere;
 });
 const getCommentaires = computed(() => {
-    return store.getCommentaires;
+    return biereStore.getCommentaires;
 });
 const getNote = computed(() => {
-    return store.getNote;
+    return biereStore.getNote;
 });
+
+const submitComment = () => {
+    let oComment = userStore.prepareCommentInfos();
+    biereStore.postComment(oComment);
+}
+
+const submitNote = () => {
+    let oNote = userStore.prepareNoteInfos();
+    biereStore.postNote(oNote);
+}
 
 
 
@@ -46,6 +59,17 @@ const getNote = computed(() => {
                     "{{commentaire.commentaire}}"
                     <small>{{commentaire.courriel}}</small>
                 </p>
+            </div>
+            <div v-show="userStore.login">
+                <textarea v-model="userStore.commentaire" placeholder='Ajoutez votre commentaire'></textarea>
+                <button @click.prevent="submitComment">Soumettre</button>
+                <div className='starsWrapper'>
+                    <span id='star_1' @mouseover="userStore.note" @click="submitNote"></span>
+                    <span id='star_2' @mouseover="userStore.note" @click="submitNote"></span>
+                    <span id='star_3' @mouseover="userStore.note" @click="submitNote"></span>
+                    <span id='star_4' @mouseover="userStore.note" @click="submitNote"></span>
+                    <span id='star_5' @mouseover="userStore.note" @click="submitNote"></span>
+                </div>
             </div>
             
         </div>

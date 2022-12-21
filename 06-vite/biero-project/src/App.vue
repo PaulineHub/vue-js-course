@@ -12,13 +12,15 @@ let store = useUserStore();
       <div className='logo-ctn'>
         <RouterLink to="/"><img src='./assets/img/biero-logo.svg' alt='' /></RouterLink>
       </div>
-      <div>
-        <RouterLink to="/bieres">Bieres</RouterLink>
+      <div className='nav-side-wrapper'>
+        <div>
+          <RouterLink to="/bieres">Bieres</RouterLink>
+        </div>
+        <form>
+          <input type="text" placeholder='Usager' v-model="store.courriel" />
+          <button @click.prevent="store.log()">Login</button>
+        </form>
       </div>
-      <form>
-        <input type="text" placeholder='Usager' v-model="store.courriel" />
-        <button @click.prevent="store.login">Login</button>
-      </form>
     </nav>
   </header>
   <!-- component matched by the route will render here -->

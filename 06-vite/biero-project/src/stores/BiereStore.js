@@ -8,6 +8,7 @@ export let useBiereStore = defineStore('biere', {
   state: () => ({
     bieres: [],
     biere: {},
+    id: '',
     commentaires: [],
     note: {},
   }),
@@ -27,8 +28,8 @@ export let useBiereStore = defineStore('biere', {
           console.log(err.message)
         })
     },
-    async fetchBiere(id) {
-      fetch(`http://127.0.0.1:8000/webservice/php/biere/${id}`)
+    async fetchBiere() {
+      fetch(`http://127.0.0.1:8000/webservice/php/biere/${this.id}`)
         .then((response) => {
           if (response.ok) return response.json()
           else throw Error()
@@ -40,8 +41,8 @@ export let useBiereStore = defineStore('biere', {
           console.log(err.message)
         })
     },
-    async fetchCommentaires(id) {
-      fetch(`http://127.0.0.1:8000/webservice/php/biere/${id}/commentaire`)
+    async fetchCommentaires() {
+      fetch(`http://127.0.0.1:8000/webservice/php/biere/${this.id}/commentaire`)
         .then((response) => {
           if (response.ok) return response.json()
           else throw Error()
@@ -53,19 +54,66 @@ export let useBiereStore = defineStore('biere', {
           console.log(err.message)
         })
     },
-    async fetchNote(id) {
-      fetch(`http://127.0.0.1:8000/webservice/php/biere/${id}/note`)
+    async fetchNote() {
+      fetch(`http://127.0.0.1:8000/webservice/php/biere/${this.id}/note`)
         .then((response) => {
           if (response.ok) return response.json()
           else throw Error()
         })
         .then((data) => {
-          console.log('note', data.data);
+          console.log('note', data.data)
           this.note = data.data
         })
         .catch((err) => {
           console.log(err.message)
         })
+    },
+    async postComment(oComment) {
+      let options = this.buildOptions(oComment)
+      let putCommentaire = await fetch(
+          `http://127.0.0.1:8000/webservice/php/biere/${this.id}/commentaire`,
+          options
+        ),
+        getCommentaires = await fetch(
+          `http://127.0.0.1:8000/webservice/php/biere/${this.id}/commentaire`
+        )
+
+      Promise.all([putCommentaire, getCommentaires])
+        .then((response) => {
+          return response[1].json()
+        })
+        .then((data) => {
+          this.commentaires = data.data
+        })
+    },
+    async postNote(oNote) {
+      let options = this.buildOptions(oNote)
+      let putNote = await fetch(
+          `http://127.0.0.1:8000/webservice/php/biere/${this.id}/note`,
+          options
+        ),
+        getNote = await fetch(
+          `http://127.0.0.1:8000/webservice/php/biere/${this.id}/note`
+        )
+
+      Promise.all([putNote, getNote])
+        .then((response) => {
+          return response[1].json()
+        })
+        .then((data) => {
+          this.note = data.data;
+        })
+    },
+    buildOptions(body) {
+      let options = {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Basic ' + btoa('biero:biero'),
+        },
+        body: JSON.stringify(body),
+      }
+      return options
     },
   },
 

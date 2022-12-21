@@ -5,12 +5,28 @@ export let useUserStore = defineStore('user', {
   state: () => ({
     courriel: '',
     login: '',
+    commentaire: '',
+    note: '',
   }),
 
   // methods
   actions: {
-    login(state) {
-        state.login = state.courriel;
+    log() {
+      this.login = this.courriel;
+    },
+    prepareCommentInfos() {
+      let oCommentaire = {
+        commentaire: this.commentaire,
+        courriel: this.login,
+      }
+      return oCommentaire;
+    },
+    prepareNoteInfos() {
+      let oNote = {
+        Note: this.note,
+        courriel: this.login,
+      }
+      return oNote;
     }
   },
 
