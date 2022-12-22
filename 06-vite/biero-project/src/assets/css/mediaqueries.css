@@ -10,12 +10,6 @@
         font-size: 1.4em;
     }
 
-    /* ACCUEIL */
-
-    .hero-wrapper {
-        top: 180px !important;
-    }
-
     /* BIERE */
 
     .biere {
@@ -102,12 +96,6 @@
     }
 
     /* ACCUEIL */
-
-    .hero-wrapper {
-        top: 200px !important;
-        left: 50%;
-        transform: translate(-50%, 0%);
-    }
 
     .hero-img-ctn {
         margin:auto;
